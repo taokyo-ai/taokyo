@@ -1,0 +1,70 @@
+/* Gebruik van de CSS variabelen uit de Brand Guide */
+:root {
+  --primary: #2E7D32;       /* AI groen  */
+  --primary-dark: #1B5E20;  /* Donkergroen [cite: 4] */
+  --text: #111827;          /* Hoofdtekst [cite: 36] */
+  --muted: #6B7280;         /* Subtitels [cite: 5, 37] */
+  --bg-white: #FFFFFF;      /* Achtergrond [cite: 6] */
+  --border: #E5E7EB;        /* Borders [cite: 7] */
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  background-color: var(--bg-white);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* Hoofdfont Inter voor algemene tekst  */
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  padding: 40px;
+  /* Minimalistisch design met veel witruimte [cite: 17, 18] */
+}
+
+.brand-image {
+  max-width: 300px;
+  height: auto;
+}
+
+/* Headings in Space Grotesk  */
+.headline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+.subheadline {
+  font-size: 1.25rem;
+  color: var(--muted);
+  margin-bottom: 40px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Primary button styling volgens specificaties  */
+.primary-button {
+  background-color: var(--primary);
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover state volgens specificaties [cite: 16] */
+.primary-button:hover {
+  background-color: var(--primary-dark);
+}
