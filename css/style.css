@@ -1,70 +1,275 @@
-/* Gebruik van de CSS variabelen uit de Brand Guide */
-:root {
-  --primary: #2E7D32;       /* AI groen  */
-  --primary-dark: #1B5E20;  /* Donkergroen [cite: 4] */
-  --text: #111827;          /* Hoofdtekst [cite: 36] */
-  --muted: #6B7280;         /* Subtitels [cite: 5, 37] */
-  --bg-white: #FFFFFF;      /* Achtergrond [cite: 6] */
-  --border: #E5E7EB;        /* Borders [cite: 7] */
-}
-
-body, html {
-  height: 100%;
+/* Reset & basisstijlen */
+* {
   margin: 0;
-  background-color: var(--bg-white);
-  color: var(--text);
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  background-color: #FFFFFF;
+  color: #111827;
+}
+
+/* Link styling */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  background-color: #FFFFFF;
+  padding: 1rem 2rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  text-align: center;
-  /* Hoofdfont Inter voor algemene tekst  */
-  font-family: 'Inter', sans-serif;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  z-index: 999;
 }
-
-.container {
-  max-width: 800px;
-  padding: 40px;
-  /* Minimalistisch design met veel witruimte [cite: 17, 18] */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-
-.brand-image {
-  max-width: 300px;
-  height: auto;
+.logo img {
+  height: 70px;
 }
-
-/* Headings in Space Grotesk  */
-.headline {
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-links a {
+  font-weight: 600;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 3rem;
-  line-height: 1.1;
-  margin-bottom: 20px;
-  color: var(--text);
-}
-
-.subheadline {
-  font-size: 1.25rem;
-  color: var(--muted);
-  margin-bottom: 40px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Primary button styling volgens specificaties  */
-.primary-button {
-  background-color: var(--primary);
-  color: white;
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
   font-size: 1rem;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  color: #1B5E20;
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: #2E7D32;
 }
 
-/* Hover state volgens specificaties [cite: 16] */
-.primary-button:hover {
-  background-color: var(--primary-dark);
+/* Hero sectie */
+.hero {
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background-color: #f0f4f8;
+  padding: 2rem;
+  background-image: url('hero-background.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.hero-content {
+  max-width: 600px;
+  background-color: rgba(255,255,255,0.8);
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.5rem;
+  color: #2E7D32;
+  margin-bottom: 1rem;
+}
+p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+.btn-primary {
+  background-color: #2E7D32;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+.btn-primary:hover {
+  background-color: #1B5E20;
+}
+
+/* Features en andere secties */
+.features,
+.grid-cursussen {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.feature-item, .cursus-tegel {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s;
+}
+.feature-item:hover, .cursus-tegel:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+h2 {
+  color: #2E7D32;
+  margin-bottom: 1rem;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.solutions-preview,
+.about-shorte {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+footer {
+  background-color: #F9FAFB;
+  padding: 2rem;
+}
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.social-icon {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s;
+}
+.social-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Responsieve layout aanvullingen */
+@media (min-width: 768px) {
+  /* Navbar layout voor groter scherm */
+  .navbar {
+    padding: 1rem 4rem;
+  }
+  /* Flexie voor footer op grotere schermen */
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+/* Verberg de hamburger knop standaard op grote schermen */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+/* Responsive styling: op mobiel (max-width: 768px) */
+@media(max-width: 768px) {
+  /* Laat menu-toggle zien */
+  .menu-toggle {
+    display: block;
+  }
+  /* Verberg standaard het menu (trekt in) */
+  #nav-links {
+    display: none;
+    position: absolute;
+    top: 60px; /* onder de navbar, pas aan indien nodig */
+    right: 20px;
+    background-color: #fff;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    width: 200px; /* of zekere breedte */
+  }
+  /* Laat menu zien wanneer actief (met klasse 'show') */
+  #nav-links.show {
+    display: flex;
+  }
+  
+  /* Aanpassingen voor de nav links op mobiel (optioneel) */
+  .nav-links li {
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 2rem; /* minder groot op mobiel */
+  }
+  p, li, span {
+    font-size: 1rem;
+  }
+  /* knoppen */
+  .btn-primary {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+
+/* Verberg de hamburger standaard, enkel zichtbaar op mobiel */
+.menu-toggle {
+  display: none;
+}
+
+/* Responsive media query voor schermen ≤768px */
+@media(max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  #nav-links {
+    display: none; /* standaard verborgen op mobiel */
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #fff;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    width: 200px;
+  }
+  #nav-links.show {
+    display: flex; /* zichtbaar maken wanneer 'show' klasse */
+  }
+}
+
+/* Maak dat de 'main' of je hoofd content niet te breed wordt */
+main {
+  max-width: 1200px; /* of andere breedte die je wilt */
+  width: 100%; /* neemt volledige breedte op mobiele apparaten */
+  box-sizing: border-box; /* zorgt dat padding niet breder maakt dan gewenst */
+  margin: 0 auto; /* centrer */
+  padding: 30px;
+  margin-top: 150px;
+}
+
+/* Responsieve aanpassing op kleiner scherm */
+@media(max-width: 768px) {
+  main {
+    padding: 30px; /* minder padding op mobiel */
+  }
+}
+
+#chat-container {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 320px;
+  min-height: 120px;
+  background: white;
+  border: 1px solid #ccc;
+  z-index: 9999;
+  padding: 12px;
+  border-radius: 12px;
 }
