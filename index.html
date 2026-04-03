@@ -1,27 +1,99 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taokyo AI Collective | Under Construction</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/png" href="Images/Taokyo-circle.png">
-    <link rel="apple-touch-icon" href="Images/Taokyo-circle.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Taokyo AI Collective</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Space+Grotesk&display=swap" rel="stylesheet" />
+  <script
+  src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js"
+  async
+></script>
+<script src="script.js" defer></script>
 </head>
 <body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <img src="Taokyo.png" alt="Taokyo Logo" />
+        <span>Taokyo AI Collective</span>
+      </a>
+      <!-- Hamburger knop (voor mobiel) -->
+      <div class="menu-toggle" id="menu-toggle" aria-label="menu" aria-expanded="false" role="button">
+        &#9776; <!-- Unicode hamburger icon -->
+      </div>
+      <!-- Navigatie links -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Ons werk</a></li>
+        <li><a href="solutions.html">Oplossingen</a></li>
+        <li><a href="cursussen.html">Cursussen</a></li>
+        <li><a href="about.html">Over ons</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="container">
-        <img src="Images/Taokyo.png" alt="Taokyo AI Logo" class="brand-image">
-        
-        <h1 class="headline">Scalable artificial intelligence solutions</h1>
-        <p class="subheadline">Onze nieuwe omgeving is momenteel in ontwikkeling. We bouwen aan de toekomst van moderne bedrijven.</p>
-        
-        <div class="cta-wrapper">
-            <button id="alertButton" class="primary-button">Houd mij op de hoogte</button>
-        </div>
+  <!-- Hero sectie -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Verkennen en toepassen van AI binnen jouw organisatie</h1>
+      <p>Praktische AI-oplossingen voor toekomstbestendige bedrijven. Laat ons je begeleiden!</p>
+      <a href="contact.html" class="btn-primary">Neem contact op</a>
     </div>
+  </section>
 
-    <script src="js/script.js"></script>
+  <aside id="chat-container" aria-label="Chat assistent"></aside>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="feature-item">
+      <h2>AI Voor Iedereen</h2>
+      <p>Maak AI begrijpelijk en toepasbaar voor elke medewerker en elke afdeling.</p>
+    </div>
+    <div class="feature-item">
+      <h2>Praktische Workshops</h2>
+      <p>Hands-on trainingen en ondersteuning op maat.</p>
+    </div>
+    <div class="feature-item">
+      <h2>Innovatie & Strategie</h2>
+      <p>Versterk je team met slimme AI-toepassingen en digitale innovatie.</p>
+    </div>
+  </section>
+
+  <!-- Ontdek oplossingen -->
+  <section class="solutions-preview">
+    <h2>Ontdek onze oplossingen</h2>
+    <p>Van workshops tot consultancy, wij helpen je AI slim inzetten.</p>
+    <a href="solutions.html" class="btn-primary">Bekijk oplossingen</a>
+  </section>
+
+  <!-- Kort over ons -->
+  <section class="about-shorte">
+    <h2>Over Taokyo</h2>
+    <p>Wij geloven dat AI begrijpelijk en toepasbaar moet zijn voor iedereen. Samen bouwen we slimme oplossingen die echt impact maken.</p>
+    <a href="about.html" class="btn-primary">Lees meer</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h3>Contactinformatie</h3>
+        <p>Email: aiwerk066@gmail.com</p>
+        <p>Telefoon: 06-123456</p>
+        <p>Locatie: Den Haag, Nederland</p>
+      </div>
+      <div class="socials">
+        <a href="https://instagram.com/taokyo.nl" target="_blank" aria-label="Instagram">
+          <img src="instagram-2.png" alt="Instagram" class="social-icon" />
+        </a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
