@@ -272,4 +272,5 @@ main {
   z-index: 9999;
   padding: 12px;
   border-radius: 12px;
+  display: none;
 }
