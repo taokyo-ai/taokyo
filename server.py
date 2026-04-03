@@ -17,7 +17,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Static folders
 app.mount("/css", StaticFiles(directory=BASE_DIR / "css"), name="css")
 app.mount("/js", StaticFiles(directory=BASE_DIR / "js"), name="js")
 app.mount("/Images", StaticFiles(directory=BASE_DIR / "Images"), name="Images")
@@ -28,12 +27,10 @@ if not api_key:
 
 client = OpenAI(api_key=api_key)
 
-# Homepage
 @app.get("/")
 def home():
     return FileResponse(BASE_DIR / "index.html")
 
-# API endpoint voor ChatKit
 @app.post("/api/chatkit/session")
 def create_chatkit_session():
     try:
@@ -55,17 +52,17 @@ def create_chatkit_session():
             content={"error": str(e)}
         )
 
-# Andere pagina's zoals /about of /contact
-@app.get("/{page_name}")
-def serve_page(page_name: str):
+# Eerst .html routes
+@app.get("/{page_name}.html")
+def serve_html_page(page_name: str):
     file_path = BASE_DIR / f"{page_name}.html"
     if file_path.exists():
         return FileResponse(file_path)
     return FileResponse(BASE_DIR / "index.html")
 
-# Ondersteunt ook directe .html urls
-@app.get("/{page_name}.html")
-def serve_html_page(page_name: str):
+# Daarna korte routes zoals /about
+@app.get("/{page_name}")
+def serve_page(page_name: str):
     file_path = BASE_DIR / f"{page_name}.html"
     if file_path.exists():
         return FileResponse(file_path)
