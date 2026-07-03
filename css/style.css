@@ -371,7 +371,7 @@ main {
 
 .kennisbank-page .btn-primary {
   display: inline-block;
-  background: var(--black);
+  background: rgb(46, 125, 50);
   color: var(--white);
   padding: 14px 32px;
   border-radius: 10px;
