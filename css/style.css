@@ -384,24 +384,34 @@ main {
 /* ---------- FAN / ARC VISUAL ---------- */
 .kennisbank-page .fan-wrap {
   position: relative;
+  height: 340px;
+  margin-top: 50px;
+}
+
+.kennisbank-page .fan-track {
+  position: absolute;
+  inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 340px;
-  margin-top: 50px;
+  gap: 28px;
+  transition: transform 0.15s linear;
+  will-change: transform;
 }
 
 .kennisbank-page .fan-card {
   position: relative;
   width: 130px;
   height: 170px;
-  margin: 0 -20px;
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 14px;
   box-shadow: 0 12px 24px rgba(0,0,0,0.08);
   overflow: hidden;
   display: block;
+  cursor: pointer;
+  transform: rotate(var(--r, 0deg)) translateY(var(--ty, 0px)) scale(var(--s, 1));
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .kennisbank-page .fan-card img {
@@ -411,14 +421,19 @@ main {
   display: block;
 }
 
-.kennisbank-page .fan-1 { transform: rotate(-24deg) translateY(60px); z-index: 1; }
-.kennisbank-page .fan-2 { transform: rotate(-14deg) translateY(15px); z-index: 2; }
-.kennisbank-page .fan-3 { transform: rotate(-6deg)  translateY(-10px); z-index: 3; }
-.kennisbank-page .fan-4 { transform: rotate(0deg)   translateY(-20px); z-index: 4; }
-.kennisbank-page .fan-5 { transform: rotate(6deg)   translateY(-10px); z-index: 3; }
-.kennisbank-page .fan-6 { transform: rotate(14deg)  translateY(15px); z-index: 2; }
-.kennisbank-page .fan-7 { transform: rotate(24deg)  translateY(60px); z-index: 1; }
+.kennisbank-page .fan-1 { --r: -24deg; --ty: 60px;  z-index: 1; }
+.kennisbank-page .fan-2 { --r: -14deg; --ty: 15px;  z-index: 2; }
+.kennisbank-page .fan-3 { --r: -6deg;  --ty: -10px; z-index: 3; }
+.kennisbank-page .fan-4 { --r: 0deg;   --ty: -20px; z-index: 4; }
+.kennisbank-page .fan-5 { --r: 6deg;   --ty: -10px; z-index: 3; }
+.kennisbank-page .fan-6 { --r: 14deg;  --ty: 15px;  z-index: 2; }
+.kennisbank-page .fan-7 { --r: 24deg;  --ty: 60px;  z-index: 1; }
 
+.kennisbank-page .fan-card.is-active {
+  --s: 1.15;
+  z-index: 30;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
 .kennisbank-page .arc-overlay {
   position: absolute;
   left: 50%;
@@ -688,10 +703,12 @@ main {
 @media (max-width: 720px) {
   .kennisbank-page .hero h1 { font-size: 30px; }
   .kennisbank-page .fan-wrap { height: 240px; }
-  .kennisbank-page .fan-card { width: 90px; height: 120px; margin: 0 -14px; }
+  .kennisbank-page .fan-track { gap: 12px; }
+.kennisbank-page .fan-card { width: 90px; height: 120px; }
   .kennisbank-page .pill { font-size: 11px; padding: 6px 12px; }
   .kennisbank-page .kb-grid { grid-template-columns: 1fr; }
 }
+
 
 .kennisbank-page .hero {
   position: relative;
