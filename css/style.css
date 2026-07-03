@@ -308,3 +308,382 @@ main {
     margin-bottom: 10px;
   }
 }
+
+.kennisbank-page{
+  :root {
+  --black: #111111;
+  --white: #ffffff;
+  --gray-light: #f4f4f4;
+  --gray: #888888;
+  --border: #e2e2e2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--black);
+  background: var(--white);
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 60px 20px 0;
+  background: var(--white);
+  text-align: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--gray);
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-size: 44px;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 16px;
+  color: var(--gray);
+  margin: 0 0 28px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--black);
+  color: var(--white);
+  padding: 14px 32px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.btn-primary:hover { background: #333; }
+
+/* ---------- FAN / ARC VISUAL ---------- */
+.fan-wrap {
+  position: relative;
+  height: 340px;
+  margin-top: 50px;
+}
+
+.fan-card {
+  position: absolute;
+  top: 40px;
+  width: 130px;
+  height: 170px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--gray);
+  z-index: 1;
+}
+
+.fan-1 { left: 2%;  transform: rotate(-24deg) translateY(60px); }
+.fan-2 { left: 18%; transform: rotate(-14deg) translateY(15px); }
+.fan-3 { left: 34%; transform: rotate(-6deg)  translateY(-10px); }
+.fan-4 { left: 50%; transform: translateX(-50%) rotate(0deg) translateY(-20px); }
+.fan-5 { left: 66%; transform: rotate(6deg)   translateY(-10px); }
+.fan-6 { left: 82%; transform: rotate(14deg)  translateY(15px); }
+.fan-7 { left: 98%; transform: rotate(24deg)  translateY(60px); }
+
+.arc-overlay {
+  position: absolute;
+  left: 50%;
+  bottom: -140px;
+  width: 900px;
+  height: 400px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle at 50% 0%, var(--white) 55%, rgba(255,255,255,0) 75%);
+  z-index: 2;
+}
+
+.pill {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+.pill-1 { left: 18%; top: 78%; }
+.pill-2 { left: 40%; top: 92%; }
+.pill-3 { right: 40%; top: 92%; left: auto; }
+.pill-4 { right: 18%; top: 78%; left: auto; }
+
+/* ---------- ICONS (inline, monochrome, currentColor via border/background) ---------- */
+.icon-play,
+.icon-doc,
+.icon-search,
+.icon-refresh {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  position: relative;
+}
+
+.fan-icon { width: 26px; height: 26px; }
+
+.icon-play::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 2px;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 11px solid var(--black);
+}
+
+.icon-doc::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 1px;
+  width: 12px;
+  height: 16px;
+  border: 2px solid var(--black);
+  border-radius: 2px;
+}
+.icon-doc::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  width: 6px;
+  height: 2px;
+  background: var(--black);
+  box-shadow: 0 4px 0 var(--black), 0 8px 0 var(--black);
+}
+
+.icon-search::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--black);
+  border-radius: 50%;
+}
+.icon-search::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 7px;
+  height: 2px;
+  background: var(--black);
+  transform: rotate(45deg);
+}
+
+.icon-refresh::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--black);
+  border-radius: 50%;
+  border-right-color: transparent;
+}
+.icon-refresh::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: -1px;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 5px solid var(--black);
+  transform: rotate(90deg);
+}
+
+/* ---------- KENNISBANK GRID ---------- */
+.kennisbank {
+  max-width: 1100px;
+  margin: 80px auto 100px;
+  padding: 0 20px;
+}
+
+.kennisbank h2 {
+  font-size: 28px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.filter-btn {
+  border: 1px solid var(--border);
+  background: var(--white);
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--gray);
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+.kb-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.kb-card {
+  text-align: left;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  background: var(--white);
+  cursor: pointer;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.kb-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+}
+
+.kb-icon { margin-bottom: 8px; }
+
+.kb-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gray);
+  margin-bottom: 4px;
+}
+
+.kb-card h3 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.kb-card p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--gray);
+}
+
+.kb-card.hidden { display: none; }
+
+/* ---------- MODAL ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.modal-overlay.open { display: flex; }
+
+.modal {
+  position: relative;
+  background: var(--white);
+  border-radius: 14px;
+  max-width: 520px;
+  width: 100%;
+  padding: 32px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--gray);
+}
+
+.modal-media {
+  width: 100%;
+  height: 200px;
+  background: var(--gray-light);
+  border-radius: 10px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.modal-media.show { display: flex; }
+
+.modal-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gray);
+}
+
+.modal h2 { margin: 6px 0 10px; }
+.modal p { margin: 0; color: var(--gray); line-height: 1.5; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 720px) {
+  .hero h1 { font-size: 30px; }
+  .fan-wrap { height: 240px; }
+  .fan-card { width: 90px; height: 120px; }
+  .pill { font-size: 11px; padding: 6px 12px; }
+  .kb-grid { grid-template-columns: 1fr; }
+}
+}
