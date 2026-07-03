@@ -1,3 +1,37 @@
+// Fan: draaien bij scrollen
+const fanTrack = document.querySelector(".fan-track");
+if (fanTrack) {
+  let ticking = false;
+  function updateFanRotation() {
+    const angle = Math.min(window.scrollY * 0.08, 40); // max 40 graden
+    fanTrack.style.transform = `rotate(${angle}deg)`;
+    ticking = false;
+  }
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      requestAnimationFrame(updateFanRotation);
+      ticking = true;
+    }
+  });
+  updateFanRotation();
+}
+
+// Fan: kaartje iets laten groeien bij klikken, dan doorsturen
+document.querySelectorAll(".fan-card").forEach((card) => {
+  card.addEventListener("click", function (e) {
+    const opensNewTab = this.target === "_blank";
+    this.classList.add("is-active");
+
+    if (!opensNewTab) {
+      e.preventDefault();
+      const href = this.href;
+      setTimeout(() => { window.location.href = href; }, 180);
+    } else {
+      setTimeout(() => this.classList.remove("is-active"), 350);
+    }
+  });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
   const navLinks = document.getElementById('nav-links');
