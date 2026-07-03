@@ -1,73 +1,120 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kennis - Taokyo AI Collective</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Space+Grotesk&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kennisbank – Taokyo</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <!-- Logo -->
-      <a href="index.html" class="logo">
-        <img src="Images/Taokyo.png" alt="Taokyo Logo" />
-        <span>Taokyo AI Collective</span>
-      </a>
-      <!-- Hamburger knop (voor mobiel) -->
-      <div class="menu-toggle" id="menu-toggle" aria-label="menu" aria-expanded="false" role="button">
-        &#9776; <!-- Unicode hamburger icon -->
-      </div>
-      <!-- Navigatie links -->
-      <ul class="nav-links" id="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="portfolio.html">Ons werk</a></li>
-        <li><a href="solutions.html">Oplossingen</a></li>
-        <li><a href="cursussen.html">Cursussen</a></li>
-        <li><a href="about.html">Over ons</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header> 
-  
-  <main class="content-section">
-    <h1>Kennis</h1>
-    <div class="grid-cursussen">
-      <!-- Tegel 1 -->
-      <a href="a-i-in-de-klas.html" class="cursus-tegel">
-        <h3>AI in de klas</h3>
-        <p>Leer hoe AI in het onderwijs kan worden toegepast.</p>
-      </a>
-      <!-- Tegel 2 -->
-      <a href="ai-voor-beginners.html" class="cursus-tegel">
-        <h3>AI voor beginners</h3>
-        <p>Ontdek de basisprincipes van AI.</p>
-      </a>
-      <!-- Tegel 3 -->
-      <a href="kunst-voor-verjaardag.html" class="cursus-tegel">
-        <h3>Hoe kan ik als een AI expert klinken op een verjaardag</h3>
-        <p>Verrijk je conversaties met AI-kennis.</p>
-      </a>
-    </div>
-  </main>
 
-  <footer>
-    <div class="footer-content">
-      <div>
-        <h3>Contactinformatie</h3>
-        <p>Email: aiwerk066@gmail.com</p>
-        <p>Telefoon: 06-123456</p>
-        <p>Locatie: Den Haag, Nederland</p>
-      </div>
-      <div class="socials">
-        <a href="https://instagram.com/taokyo.ai" target="_blank" aria-label="Instagram">
-          <img src="Images/instagram-2.png" alt="Instagram" class="social-icon" />
-        </a>
-      </div>
-    </div>
-  </footer>
-  <script src="js/script.js"></script>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="badge">Kennisbank</span>
+    <h1>Alles wat je moet<br>weten, op één plek</h1>
+    <p>Video's, artikelen en handleidingen om je verder te educeren over AI</p>
+    <a href="#kennisbank" class="btn-primary">Bekijk de kennisbank</a>
+  </div>
+
+  <div class="fan-wrap">
+    <div class="fan-card fan-1"><span class="fan-icon icon-doc"></span><span>Artikel</span></div>
+    <div class="fan-card fan-2"><span class="fan-icon icon-play"></span><span>Video</span></div>
+    <div class="fan-card fan-3"><span class="fan-icon icon-doc"></span><span>Artikel</span></div>
+    <div class="fan-card fan-4"><span class="fan-icon icon-play"></span><span>Video</span></div>
+    <div class="fan-card fan-5"><span class="fan-icon icon-doc"></span><span>Artikel</span></div>
+    <div class="fan-card fan-6"><span class="fan-icon icon-play"></span><span>Video</span></div>
+    <div class="fan-card fan-7"><span class="fan-icon icon-doc"></span><span>Artikel</span></div>
+
+    <div class="arc-overlay"></div>
+
+    <div class="pill pill-1"><span class="pill-icon icon-search"></span>Zoekfunctie</div>
+    <div class="pill pill-2"><span class="pill-icon icon-play"></span>Video's</div>
+    <div class="pill pill-3"><span class="pill-icon icon-doc"></span>Artikelen</div>
+    <div class="pill pill-4"><span class="pill-icon icon-refresh"></span>Wekelijks nieuw</div>
+  </div>
+</section>
+
+<!-- KENNISBANK GRID -->
+<section class="kennisbank" id="kennisbank">
+  <h2>Kennisbank</h2>
+
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">Alles</button>
+    <button class="filter-btn" data-filter="video">Video's</button>
+    <button class="filter-btn" data-filter="article">Artikelen</button>
+  </div>
+
+  <div class="kb-grid">
+
+    <button class="kb-card" data-type="video"
+      data-title="Introductie tot Taokyo AI"
+      data-desc="Een korte video-introductie waarin we uitleggen wat het Taokyo AI Collective doet en waarom.">
+      <span class="kb-icon icon-play"></span>
+      <span class="kb-tag">Video</span>
+      <h3>Introductie tot Taokyo AI</h3>
+      <p>Maak in een paar minuten kennis met het collectief.</p>
+    </button>
+
+    <button class="kb-card" data-type="article"
+      data-title="Wat is de Taokyo AI Collective?"
+      data-desc="Een uitgebreid artikel over de missie, visie en werkwijze van Taokyo.">
+      <span class="kb-icon icon-doc"></span>
+      <span class="kb-tag">Artikel</span>
+      <h3>Wat is de Taokyo AI Collective?</h3>
+      <p>De missie, visie en werkwijze op een rij.</p>
+    </button>
+
+    <button class="kb-card" data-type="video"
+      data-title="Hoe gebruik je de kennisbank"
+      data-desc="Een uitlegvideo over het filteren en doorzoeken van video's en artikelen in de kennisbank.">
+      <span class="kb-icon icon-play"></span>
+      <span class="kb-tag">Video</span>
+      <h3>Hoe gebruik je de kennisbank</h3>
+      <p>Filteren en zoeken in twee minuten uitgelegd.</p>
+    </button>
+
+    <button class="kb-card" data-type="article"
+      data-title="Veelgestelde vragen"
+      data-desc="Antwoorden op de meest gestelde vragen over Taokyo, van toegang tot samenwerking.">
+      <span class="kb-icon icon-doc"></span>
+      <span class="kb-tag">Artikel</span>
+      <h3>Veelgestelde vragen</h3>
+      <p>Snelle antwoorden op de meest gestelde vragen.</p>
+    </button>
+
+    <button class="kb-card" data-type="video"
+      data-title="Achter de schermen"
+      data-desc="Een kijkje achter de schermen bij het team van Taokyo.">
+      <span class="kb-icon icon-play"></span>
+      <span class="kb-tag">Video</span>
+      <h3>Achter de schermen</h3>
+      <p>Een kijkje achter de schermen bij het team.</p>
+    </button>
+
+    <button class="kb-card" data-type="article"
+      data-title="Roadmap 2026"
+      data-desc="Wat Taokyo in 2026 gaat bouwen en waarom, in chronologische volgorde.">
+      <span class="kb-icon icon-doc"></span>
+      <span class="kb-tag">Artikel</span>
+      <h3>Roadmap 2026</h3>
+      <p>Wat we dit jaar gaan bouwen, stap voor stap.</p>
+    </button>
+
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <div class="modal-media" id="modalMedia"></div>
+    <span class="modal-tag" id="modalTag"></span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalDesc"></p>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
