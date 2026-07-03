@@ -1,33 +1,67 @@
-// Fan: draaien bij scrollen
-const fanTrack = document.querySelector(".fan-track");
-if (fanTrack) {
-  let ticking = false;
-  function updateFanRotation() {
-    const angle = Math.min(window.scrollY * 0.08, 40); // max 40 graden
-    fanTrack.style.transform = `rotate(${angle}deg)`;
-    ticking = false;
-  }
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      requestAnimationFrame(updateFanRotation);
-      ticking = true;
-    }
+// Fan: coverflow-effect gestuurd door scrollen
+const fanWrap = document.querySelector(".fan-wrap");
+const fanCards = Array.from(document.querySelectorAll(".fan-track .fan-card"));
+
+const FAN_SPACING = 130;
+const FAN_MAX_ROTATE = 22;
+const FAN_MAX_DIST = 4;
+const FAN_RANGE_FACTOR = 2.2;
+
+let fanTicking = false;
+
+function updateFanCoverflow() {
+  fanTicking = false;
+  if (!fanWrap || fanCards.length === 0) return;
+
+  const rect = fanWrap.getBoundingClientRect();
+  const viewportCenter = window.innerHeight / 2;
+  const range = rect.height * FAN_RANGE_FACTOR;
+  const rawProgress = (viewportCenter - rect.top + range / 2) / range;
+  const activeIndex = Math.min(Math.max(rawProgress, 0), 1) * (fanCards.length - 1);
+
+  fanCards.forEach((card, i) => {
+    if (card.classList.contains("is-clicked")) return;
+    const d = i - activeIndex;
+    const absD = Math.abs(d);
+
+    const x = d * FAN_SPACING;
+    const y = Math.min(absD * 18, 70);
+    const rotate = Math.max(-FAN_MAX_ROTATE, Math.min(FAN_MAX_ROTATE, d * 14));
+    const scale = Math.max(0.55, 1 - absD * 0.14);
+    const opacity = Math.max(0.15, 1 - absD / FAN_MAX_DIST);
+    const z = Math.round(100 - absD * 10);
+
+    card.style.transform = `translate(${x}px, ${y}px) rotate(${rotate}deg) scale(${scale})`;
+    card.style.opacity = opacity;
+    card.style.zIndex = z;
   });
-  updateFanRotation();
 }
 
-// Fan: kaartje iets laten groeien bij klikken, dan doorsturen
-document.querySelectorAll(".fan-card").forEach((card) => {
+function requestFanUpdate() {
+  if (!fanTicking) {
+    fanTicking = true;
+    requestAnimationFrame(updateFanCoverflow);
+  }
+}
+
+window.addEventListener("scroll", requestFanUpdate);
+window.addEventListener("resize", requestFanUpdate);
+updateFanCoverflow();
+
+fanCards.forEach((card) => {
   card.addEventListener("click", function (e) {
     const opensNewTab = this.target === "_blank";
-    this.classList.add("is-active");
+    this.classList.add("is-clicked");
+    const current = this.style.transform || "";
+    this.style.transform = current + " scale(1.15)";
+    this.style.zIndex = 200;
 
     if (!opensNewTab) {
       e.preventDefault();
       const href = this.href;
       setTimeout(() => { window.location.href = href; }, 180);
     } else {
-      setTimeout(() => this.classList.remove("is-active"), 350);
+      setTimeout(() => this.classList.remove("is-clicked"), 350);
     }
   });
 });
