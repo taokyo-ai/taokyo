@@ -341,6 +341,9 @@ main {
   z-index: 3;
   max-width: 700px;
   margin: 0 auto;
+  background: none;
+  padding: 0;
+  border-radius: 0;
 }
 
 .kennisbank-page .badge {
@@ -688,4 +691,16 @@ main {
   .kennisbank-page .fan-card { width: 90px; height: 120px; margin: 0 -14px; }
   .kennisbank-page .pill { font-size: 11px; padding: 6px 12px; }
   .kennisbank-page .kb-grid { grid-template-columns: 1fr; }
+}
+
+.kennisbank-page .hero {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  min-height: auto;
+  background-image: none;
+  background-color: var(--white);
+  padding: 60px 20px 0;
+  margin-top: 80px;
+  text-align: center;
 }
