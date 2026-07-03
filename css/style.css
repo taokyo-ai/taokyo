@@ -315,6 +315,8 @@ main {
   --gray-light: #f4f4f4;
   --gray: #888888;
   --border: #e2e2e2;
+    --green: #2E7D32;
+  --green-dark: #1B5E20;
 }
 
 .kennisbank-page {
@@ -704,4 +706,227 @@ main {
   padding: 60px 20px 0;
   margin-top: 80px;
   text-align: center;
+}
+
+/* =========================================================
+   ONS WERK / PORTFOLIO PAGINA
+   ========================================================= */
+.portfolio-page {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--black);
+  background: var(--white);
+}
+
+.portfolio-page * { box-sizing: border-box; }
+.portfolio-page a { text-decoration: none; color: inherit; }
+
+/* ---------- HERO ---------- */
+.portfolio-page .pf-hero {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 140px 20px 60px;
+  text-align: center;
+}
+
+.portfolio-page .pf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 18px 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--gray);
+  margin-bottom: 28px;
+}
+
+.portfolio-page .pf-avatars {
+  display: flex;
+}
+
+.portfolio-page .pf-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--green);
+  border: 2px solid var(--white);
+  margin-left: -8px;
+}
+.portfolio-page .pf-avatar:first-child { margin-left: 0; }
+.portfolio-page .pf-avatar:nth-child(2) { background: var(--black); }
+.portfolio-page .pf-avatar:nth-child(3) { background: var(--gray); }
+
+.portfolio-page .pf-hero h1 {
+  font-size: 48px;
+  line-height: 1.15;
+  font-weight: 700;
+  margin: 0 0 20px;
+}
+
+.portfolio-page .pf-hero p {
+  font-size: 16px;
+  color: var(--gray);
+  line-height: 1.6;
+  margin: 0 0 32px;
+}
+
+.portfolio-page .pf-hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 64px;
+}
+
+.portfolio-page .pf-btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  border: 1px solid transparent;
+}
+
+.portfolio-page .pf-btn-primary {
+  background: var(--green);
+  color: var(--white);
+}
+.portfolio-page .pf-btn-primary:hover { background: var(--green-dark); }
+
+.portfolio-page .pf-btn-secondary {
+  background: var(--white);
+  color: var(--black);
+  border-color: var(--border);
+}
+.portfolio-page .pf-btn-secondary:hover { border-color: var(--black); }
+
+.portfolio-page .pf-partners-label {
+  display: block;
+  font-size: 13px;
+  color: var(--gray);
+  margin-bottom: 20px;
+}
+
+.portfolio-page .pf-partners-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #bbbbbb;
+}
+
+/* ---------- PORTFOLIO GRID ---------- */
+.portfolio-page .pf-portfolio {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px 100px;
+}
+
+.portfolio-page .pf-row {
+  display: flex;
+  gap: 16px;
+  height: 340px;
+  margin-bottom: 16px;
+}
+
+.portfolio-page .pf-tile {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  color: var(--white);
+  transition: flex-grow 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.portfolio-page .pf-tile:hover {
+  flex-grow: 2.6;
+  z-index: 2;
+}
+
+.portfolio-page .pf-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0) 65%);
+  z-index: 1;
+}
+
+.portfolio-page .pf-tile-body {
+  position: relative;
+  z-index: 2;
+  padding: 24px;
+  width: 100%;
+}
+
+.portfolio-page .pf-tile-tag {
+  display: inline-block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+  margin-bottom: 6px;
+}
+
+.portfolio-page .pf-tile-body h3 {
+  margin: 0 0 4px;
+  font-size: 19px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.portfolio-page .pf-tile-body p {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease 0.1s, max-height 0.3s ease;
+}
+
+.portfolio-page .pf-tile:hover .pf-tile-body p {
+  opacity: 0.9;
+  max-height: 60px;
+}
+
+.portfolio-page .pf-tile-1 { background: linear-gradient(135deg, #1b1b1b, #3a3a3a); }
+.portfolio-page .pf-tile-2 { background: linear-gradient(135deg, var(--green-dark), var(--black)); }
+.portfolio-page .pf-tile-3 { background: linear-gradient(135deg, #d9dde0, #aab0b6); color: var(--black); }
+.portfolio-page .pf-tile-4 { background: linear-gradient(135deg, #14181c, #2b333a); }
+.portfolio-page .pf-tile-5 { background: linear-gradient(135deg, #0a0a0a, #262626); }
+.portfolio-page .pf-tile-6 { background: linear-gradient(135deg, #0f3d3e, #1c6b6d); }
+.portfolio-page .pf-tile-7 { background: linear-gradient(135deg, #000000, #1a1a1a); }
+.portfolio-page .pf-tile-8 { background: linear-gradient(135deg, var(--green), #123a15); }
+
+.portfolio-page .pf-tile-3::after,
+.portfolio-page .pf-tile-3 .pf-tile-tag,
+.portfolio-page .pf-tile-3 .pf-tile-body p {
+  color: var(--black);
+}
+.portfolio-page .pf-tile-3::after {
+  background: linear-gradient(to top, rgba(255,255,255,0.7), rgba(255,255,255,0) 65%);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .portfolio-page .pf-hero { padding: 120px 20px 40px; }
+  .portfolio-page .pf-hero h1 { font-size: 34px; }
+  .portfolio-page .pf-row {
+    flex-direction: column;
+    height: auto;
+  }
+  .portfolio-page .pf-tile {
+    height: 220px;
+    flex-grow: 1 !important;
+  }
+  .portfolio-page .pf-tile-body p {
+    opacity: 0.9;
+    max-height: 60px;
+  }
 }
