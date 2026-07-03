@@ -688,7 +688,7 @@ main {
   .kennisbank-page .hero h1 { font-size: 30px; }
   .kennisbank-page .fan-wrap { height: 240px; }
   .kennisbank-page .fan-track { gap: 12px; }
-.kennisbank-page .fan-card { width: 90px; height: 120px; }
+.kennisbank-page .fan-card { width: 90px; height: 120px; margin: -60px 0 0 -45px; }
   .kennisbank-page .pill { font-size: 11px; padding: 6px 12px; }
   .kennisbank-page .kb-grid { grid-template-columns: 1fr; }
 }
