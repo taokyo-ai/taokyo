@@ -309,8 +309,7 @@ main {
   }
 }
 
-.kennisbank-page{
-  :root {
+:root {
   --black: #111111;
   --white: #ffffff;
   --gray-light: #f4f4f4;
@@ -318,19 +317,18 @@ main {
   --border: #e2e2e2;
 }
 
-* { box-sizing: border-box; }
-
-body {
+.kennisbank-page {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--black);
   background: var(--white);
 }
 
-a { text-decoration: none; color: inherit; }
+.kennisbank-page * { box-sizing: border-box; }
+.kennisbank-page a { text-decoration: none; color: inherit; }
 
 /* ---------- HERO ---------- */
-.hero {
+.kennisbank-page .hero {
   position: relative;
   overflow: hidden;
   padding: 60px 20px 0;
@@ -338,14 +336,14 @@ a { text-decoration: none; color: inherit; }
   text-align: center;
 }
 
-.hero-content {
+.kennisbank-page .hero-content {
   position: relative;
   z-index: 3;
   max-width: 700px;
   margin: 0 auto;
 }
 
-.badge {
+.kennisbank-page .badge {
   display: inline-block;
   padding: 6px 16px;
   border: 1px solid var(--border);
@@ -355,20 +353,20 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 24px;
 }
 
-.hero h1 {
+.kennisbank-page .hero h1 {
   font-size: 44px;
   line-height: 1.15;
   margin: 0 0 16px;
   font-weight: 700;
 }
 
-.hero p {
+.kennisbank-page .hero p {
   font-size: 16px;
   color: var(--gray);
   margin: 0 0 28px;
 }
 
-.btn-primary {
+.kennisbank-page .btn-primary {
   display: inline-block;
   background: var(--black);
   color: var(--white);
@@ -378,43 +376,47 @@ a { text-decoration: none; color: inherit; }
   font-size: 15px;
 }
 
-.btn-primary:hover { background: #333; }
+.kennisbank-page .btn-primary:hover { background: #333; }
 
 /* ---------- FAN / ARC VISUAL ---------- */
-.fan-wrap {
+.kennisbank-page .fan-wrap {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 340px;
   margin-top: 50px;
 }
 
-.fan-card {
-  position: absolute;
-  top: 40px;
+.kennisbank-page .fan-card {
+  position: relative;
   width: 130px;
   height: 170px;
+  margin: 0 -20px;
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 14px;
   box-shadow: 0 12px 24px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 13px;
-  color: var(--gray);
-  z-index: 1;
+  overflow: hidden;
+  display: block;
 }
 
-.fan-1 { left: 2%;  transform: rotate(-24deg) translateY(60px); }
-.fan-2 { left: 18%; transform: rotate(-14deg) translateY(15px); }
-.fan-3 { left: 34%; transform: rotate(-6deg)  translateY(-10px); }
-.fan-4 { left: 50%; transform: translateX(-50%) rotate(0deg) translateY(-20px); }
-.fan-5 { left: 66%; transform: rotate(6deg)   translateY(-10px); }
-.fan-6 { left: 82%; transform: rotate(14deg)  translateY(15px); }
-.fan-7 { left: 98%; transform: rotate(24deg)  translateY(60px); }
+.kennisbank-page .fan-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-.arc-overlay {
+.kennisbank-page .fan-1 { transform: rotate(-24deg) translateY(60px); z-index: 1; }
+.kennisbank-page .fan-2 { transform: rotate(-14deg) translateY(15px); z-index: 2; }
+.kennisbank-page .fan-3 { transform: rotate(-6deg)  translateY(-10px); z-index: 3; }
+.kennisbank-page .fan-4 { transform: rotate(0deg)   translateY(-20px); z-index: 4; }
+.kennisbank-page .fan-5 { transform: rotate(6deg)   translateY(-10px); z-index: 3; }
+.kennisbank-page .fan-6 { transform: rotate(14deg)  translateY(15px); z-index: 2; }
+.kennisbank-page .fan-7 { transform: rotate(24deg)  translateY(60px); z-index: 1; }
+
+.kennisbank-page .arc-overlay {
   position: absolute;
   left: 50%;
   bottom: -140px;
@@ -423,9 +425,10 @@ a { text-decoration: none; color: inherit; }
   transform: translateX(-50%);
   background: radial-gradient(circle at 50% 0%, var(--white) 55%, rgba(255,255,255,0) 75%);
   z-index: 2;
+  pointer-events: none;
 }
 
-.pill {
+.kennisbank-page .pill {
   position: absolute;
   z-index: 3;
   display: flex;
@@ -440,25 +443,25 @@ a { text-decoration: none; color: inherit; }
   box-shadow: 0 6px 16px rgba(0,0,0,0.06);
 }
 
-.pill-1 { left: 18%; top: 78%; }
-.pill-2 { left: 40%; top: 92%; }
-.pill-3 { right: 40%; top: 92%; left: auto; }
-.pill-4 { right: 18%; top: 78%; left: auto; }
+.kennisbank-page .pill-1 { left: 18%; top: 78%; }
+.kennisbank-page .pill-2 { left: 40%; top: 92%; }
+.kennisbank-page .pill-3 { right: 40%; top: 92%; left: auto; }
+.kennisbank-page .pill-4 { right: 18%; top: 78%; left: auto; }
 
-/* ---------- ICONS (inline, monochrome, currentColor via border/background) ---------- */
-.icon-play,
-.icon-doc,
-.icon-search,
-.icon-refresh {
+/* ---------- ICONS ---------- */
+.kennisbank-page .icon-play,
+.kennisbank-page .icon-doc,
+.kennisbank-page .icon-search,
+.kennisbank-page .icon-refresh {
   display: inline-block;
   width: 18px;
   height: 18px;
   position: relative;
 }
 
-.fan-icon { width: 26px; height: 26px; }
+.kennisbank-page .fan-icon { width: 26px; height: 26px; }
 
-.icon-play::before {
+.kennisbank-page .icon-play::before {
   content: "";
   position: absolute;
   left: 4px;
@@ -470,7 +473,7 @@ a { text-decoration: none; color: inherit; }
   border-left: 11px solid var(--black);
 }
 
-.icon-doc::before {
+.kennisbank-page .icon-doc::before {
   content: "";
   position: absolute;
   left: 3px;
@@ -480,7 +483,7 @@ a { text-decoration: none; color: inherit; }
   border: 2px solid var(--black);
   border-radius: 2px;
 }
-.icon-doc::after {
+.kennisbank-page .icon-doc::after {
   content: "";
   position: absolute;
   left: 6px;
@@ -491,7 +494,7 @@ a { text-decoration: none; color: inherit; }
   box-shadow: 0 4px 0 var(--black), 0 8px 0 var(--black);
 }
 
-.icon-search::before {
+.kennisbank-page .icon-search::before {
   content: "";
   position: absolute;
   left: 1px;
@@ -501,7 +504,7 @@ a { text-decoration: none; color: inherit; }
   border: 2px solid var(--black);
   border-radius: 50%;
 }
-.icon-search::after {
+.kennisbank-page .icon-search::after {
   content: "";
   position: absolute;
   left: 10px;
@@ -512,7 +515,7 @@ a { text-decoration: none; color: inherit; }
   transform: rotate(45deg);
 }
 
-.icon-refresh::before {
+.kennisbank-page .icon-refresh::before {
   content: "";
   position: absolute;
   left: 1px;
@@ -523,7 +526,7 @@ a { text-decoration: none; color: inherit; }
   border-radius: 50%;
   border-right-color: transparent;
 }
-.icon-refresh::after {
+.kennisbank-page .icon-refresh::after {
   content: "";
   position: absolute;
   left: 10px;
@@ -537,26 +540,26 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ---------- KENNISBANK GRID ---------- */
-.kennisbank {
+.kennisbank-page .kennisbank {
   max-width: 1100px;
   margin: 80px auto 100px;
   padding: 0 20px;
 }
 
-.kennisbank h2 {
+.kennisbank-page .kennisbank h2 {
   font-size: 28px;
   margin-bottom: 24px;
   text-align: center;
 }
 
-.filters {
+.kennisbank-page .filters {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin-bottom: 40px;
 }
 
-.filter-btn {
+.kennisbank-page .filter-btn {
   border: 1px solid var(--border);
   background: var(--white);
   padding: 8px 20px;
@@ -566,20 +569,20 @@ a { text-decoration: none; color: inherit; }
   color: var(--gray);
 }
 
-.filter-btn.active,
-.filter-btn:hover {
+.kennisbank-page .filter-btn.active,
+.kennisbank-page .filter-btn:hover {
   background: var(--black);
   color: var(--white);
   border-color: var(--black);
 }
 
-.kb-grid {
+.kennisbank-page .kb-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
-.kb-card {
+.kennisbank-page .kb-card {
   text-align: left;
   border: 1px solid var(--border);
   border-radius: 14px;
@@ -593,14 +596,14 @@ a { text-decoration: none; color: inherit; }
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.kb-card:hover {
+.kennisbank-page .kb-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 14px 30px rgba(0,0,0,0.08);
 }
 
-.kb-icon { margin-bottom: 8px; }
+.kennisbank-page .kb-icon { margin-bottom: 8px; }
 
-.kb-tag {
+.kennisbank-page .kb-tag {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -608,21 +611,21 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 4px;
 }
 
-.kb-card h3 {
+.kennisbank-page .kb-card h3 {
   margin: 0;
   font-size: 17px;
 }
 
-.kb-card p {
+.kennisbank-page .kb-card p {
   margin: 0;
   font-size: 14px;
   color: var(--gray);
 }
 
-.kb-card.hidden { display: none; }
+.kennisbank-page .kb-card.hidden { display: none; }
 
 /* ---------- MODAL ---------- */
-.modal-overlay {
+.kennisbank-page .modal-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.5);
@@ -633,9 +636,9 @@ a { text-decoration: none; color: inherit; }
   padding: 20px;
 }
 
-.modal-overlay.open { display: flex; }
+.kennisbank-page .modal-overlay.open { display: flex; }
 
-.modal {
+.kennisbank-page .modal {
   position: relative;
   background: var(--white);
   border-radius: 14px;
@@ -644,7 +647,7 @@ a { text-decoration: none; color: inherit; }
   padding: 32px;
 }
 
-.modal-close {
+.kennisbank-page .modal-close {
   position: absolute;
   top: 12px;
   right: 16px;
@@ -655,7 +658,7 @@ a { text-decoration: none; color: inherit; }
   color: var(--gray);
 }
 
-.modal-media {
+.kennisbank-page .modal-media {
   width: 100%;
   height: 200px;
   background: var(--gray-light);
@@ -666,35 +669,23 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 16px;
 }
 
-.modal-media.show { display: flex; }
+.kennisbank-page .modal-media.show { display: flex; }
 
-.modal-tag {
+.kennisbank-page .modal-tag {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--gray);
 }
 
-.modal h2 { margin: 6px 0 10px; }
-.modal p { margin: 0; color: var(--gray); line-height: 1.5; }
+.kennisbank-page .modal h2 { margin: 6px 0 10px; }
+.kennisbank-page .modal p { margin: 0; color: var(--gray); line-height: 1.5; }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 720px) {
-  .hero h1 { font-size: 30px; }
-  .fan-wrap { height: 240px; }
-  .fan-card { width: 90px; height: 120px; }
-  .pill { font-size: 11px; padding: 6px 12px; }
-  .kb-grid { grid-template-columns: 1fr; }
-}
-
-.fan-card {
-  overflow: hidden;
-}
-
-.fan-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+  .kennisbank-page .hero h1 { font-size: 30px; }
+  .kennisbank-page .fan-wrap { height: 240px; }
+  .kennisbank-page .fan-card { width: 90px; height: 120px; margin: 0 -14px; }
+  .kennisbank-page .pill { font-size: 11px; padding: 6px 12px; }
+  .kennisbank-page .kb-grid { grid-template-columns: 1fr; }
 }
