@@ -686,4 +686,15 @@ a { text-decoration: none; color: inherit; }
   .pill { font-size: 11px; padding: 6px 12px; }
   .kb-grid { grid-template-columns: 1fr; }
 }
+
+.fan-card {
+  overflow: hidden;
+}
+
+.fan-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 }
